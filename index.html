@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <title>TTRPG Resources</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⚔️ TTRPG Resources</div>
+            <ul class="nav-links">
+                <li><a href="#campaigns" class="nav-link active">Campaigns</a></li>
+                <li><a href="#bestiary" class="nav-link">Bestiary</a></li>
+                <li><a href="#characters" class="nav-link">Characters</a></li>
+                <li><a href="#world-building" class="nav-link">World Building</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="campaigns" class="page active">
+            <h1>Campaigns</h1>
+        </div>
+
+        <div id="bestiary" class="page">
+            <h1>Bestiary</h1>
+        </div>
+
+        <div id="characters" class="page">
+            <h1>Characters</h1>
+        </div>
+
+        <div id="world-building" class="page">
+            <h1>World Building</h1>
+        </div>
+    </main>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                navLinks.forEach(nl => nl.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+
+                link.classList.add('active');
+
+                const targetId = link.getAttribute('href').substring(1);
+                const targetPage = document.getElementById(targetId);
+                
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                } else {
+                    console.error(`Page with ID "${targetId}" not found`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
