@@ -4,18 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/ruritania" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>TTRPG Resources</title>
+    <link rel="stylesheet" href="ttrpg-content.css">
+    <title>The Collector's Collection</title>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">⚔️ TTRPG Resources</div>
+            <div></div>
             <ul class="nav-links">
-                <li><a href="#campaigns" class="nav-link active">Campaigns</a></li>
-                <li><a href="#bestiary" class="nav-link">Bestiary</a></li>
-                <li><a href="#characters" class="nav-link">Characters</a></li>
-                <li><a href="#world-building" class="nav-link">World Building</a></li>
+                <li><div class="bookmark active">
+                    <a href="#campaigns" class="nav-link active campaign-color">
+                        <span>Campaigns</span>
+                    </a>
+                </div></li>
+                <li><div class="bookmark">
+                    <a href="#characters" class="nav-link inactive characters-color">
+                        <span>Characters</span>
+                    </a>
+                </div></li>
+                <li><div class="bookmark">
+                    <a href="#bestiary" class="nav-link inactive bestiary-color">
+                        <span>Bestiary</span>
+                    </a>
+                </div></li>
+                <li><div class="bookmark">
+                    <a href="#world-building" class="nav-link inactive world-color">
+                        <span>World</span>
+                    </a>
+                </div></li>
             </ul>
         </nav>
     </header>
@@ -23,44 +44,48 @@
     <main>
         <div id="campaigns" class="page active">
             <h1>Campaigns</h1>
+            <div class="content">
+                <div class="card campaign-card" data-content="campaigns/prova.html">
+                    <object data="./images/default.png" type="image/png">
+                        <img src="" alt="">
+                    </object>
+                    <div class="card-text">
+                        <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis deserunt praesentium adipisci dignissimos ut incidunt id voluptatibus nemo? Optio molestias ipsum aliquid sint, blanditiis esse error illum beatae maxime eius.</p>
+                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, necessitatibus iure. Aspernatur vero architecto illum perspiciatis sint earum sed voluptate, praesentium laudantium minima doloribus repellat voluptatum vitae nihil! Veniam, fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ex harum dignissimos eligendi soluta facere eius consequatur! Rerum excepturi id maiores aut, doloremque possimus laudantium dignissimos veritatis quae voluptates delectus!</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="bestiary" class="page">
             <h1>Bestiary</h1>
+            <div id="bestiary-content" class="content"></div>
         </div>
 
         <div id="characters" class="page">
             <h1>Characters</h1>
+            <div id="characters-content" class="content"></div>
         </div>
 
         <div id="world-building" class="page">
             <h1>World Building</h1>
+            <div id="world-building-content" class="content">
+                <div class="card world-building-card" data-content="world-building/fabaresh_ita.html">
+                    <object data="./images/default.png" type="image/png">
+                        <img src="" alt="">
+                    </object>
+                    <div class="card-text">
+                        <p class="title">Fabaresh</p>
+                        <p class="description">Un mondo fantastico dove la magia è generata da storie e racconti. Cambiato completamente dallo studio e la creazione di artifici magici, una tecnica che ha preso il nome di Scienza Apocriptica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="md-asset" class="page">
         </div>
     </main>
 
-    <script>
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pages = document.querySelectorAll('.page');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                navLinks.forEach(nl => nl.classList.remove('active'));
-                pages.forEach(page => page.classList.remove('active'));
-
-                link.classList.add('active');
-
-                const targetId = link.getAttribute('href').substring(1);
-                const targetPage = document.getElementById(targetId);
-                
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                } else {
-                    console.error(`Page with ID "${targetId}" not found`);
-                }
-            });
-        });
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
