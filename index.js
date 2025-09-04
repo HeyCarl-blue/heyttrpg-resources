@@ -1,9 +1,9 @@
-const sections = ['campaigns', 'characters', 'bestiary', 'world-building'];
+const sections = ['campaigns', 'items', 'bestiary', 'world-building'];
 
 const routes = {
     '': { pageId: 'campaigns', navIndex: 0 },
     'campaigns': { pageId: 'campaigns', navIndex: 0 },
-    'characters': { pageId: 'characters', navIndex: 1 },
+    'items': { pageId: 'items', navIndex: 1 },
     'bestiary': { pageId: 'bestiary', navIndex: 2 },
     'world-building': { pageId: 'world-building', navIndex: 3 },
 };
@@ -141,7 +141,7 @@ class HashRouter {
     updateTitle(pageId) {
         const titles = {
             'campaigns': 'Resources - Campaigns',
-            'characters': 'Resources - Characters', 
+            'items': 'Resources - Items', 
             'bestiary': 'Resources - Bestiary',
             'world-building': 'Resources - World Building'
         };

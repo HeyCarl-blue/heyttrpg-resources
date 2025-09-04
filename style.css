@@ -276,7 +276,7 @@ main {
     background-color: var(--red-3);
 }
 
-.characters-color, .characters-color:hover {
+.items-color, .items-color:hover {
     background-color: var(--orange);
 }
 
