@@ -13,6 +13,7 @@ class HashRouter {
         this.navLinks = document.querySelectorAll('.nav-link');
         this.bookmarks = document.querySelectorAll('.bookmark');
         this.pages = document.querySelectorAll('.page');
+        this.assetPage = document.getElementById('md-asset');
         
         this.init();
     }
@@ -68,10 +69,9 @@ class HashRouter {
 
     async showContentFile(filename) {
         this.pages.forEach(page => page.classList.remove('active'));
-        const assetPage = document.getElementById('md-asset');
-        if (!assetPage) return;
+        if (!this.assetPage) return;
         
-        assetPage.classList.add('active');
+        this.assetPage.classList.add('active');
         
         try {
             const response = await fetch(`./generated/${filename}`);
@@ -80,21 +80,28 @@ class HashRouter {
             }
             
             const htmlFragment = await response.text();
+
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlFragment, 'text/html');
+            const bodyContent = doc.body ? doc.body.innerHTML : htmlFragment;
             
-            assetPage.innerHTML = `
+            this.assetPage.innerHTML = `
                 <div class="markdown-content">
                     <button class="back-button" onclick="history.back()">← Back</button>
                     <article>
-                        ${htmlFragment}
+                        ${bodyContent}
                     </article>
                 </div>
             `;
+
+            this.assetPage.removeEventListener('click', this.handleAnchor);
+            this.assetPage.addEventListener('click', this.handleAnchor);
             
             const title = filename.replace('.html', '').replace(/-/g, ' ');
             document.title = `Resources - ${title}`;
             
         } catch (error) {
-            assetPage.innerHTML = `
+            this.assetPage.innerHTML = `
                 <div class="error-content">
                     <button class="back-button" onclick="history.back()">← Back</button>
                     <h2>Error Loading Content</h2>
@@ -142,6 +149,21 @@ class HashRouter {
         };
         
         document.title = titles[pageId] || 'TTRPG Resources';
+    }
+
+    handleAnchor(e) {
+        const link = e.target.closest('a[href^="#"');
+        if (link) {
+            e.preventDefault();
+            const anchor = link.getAttribute('href');
+            window.location.hash = `content/${filename}${anchor}`;
+            if (anchor) {
+                const element = document.getElementById(anchor.substring(1));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
     }
 }
 
