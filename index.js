@@ -87,15 +87,13 @@ class HashRouter {
             
             this.assetPage.innerHTML = `
                 <div class="markdown-content">
-                    <button class="back-button" onclick="history.back()">← Back</button>
                     <article>
                         ${bodyContent}
                     </article>
                 </div>
             `;
 
-            this.assetPage.removeEventListener('click', this.handleAnchor);
-            this.assetPage.addEventListener('click', this.handleAnchor);
+            this.assetPage.onclick = (e) => this.handleAnchor(filename, e);
             
             const title = filename.replace('.html', '').replace(/-/g, ' ');
             document.title = `Resources - ${title}`;
@@ -142,26 +140,32 @@ class HashRouter {
 
     updateTitle(pageId) {
         const titles = {
-            'campaigns': 'TTRPG Resources - Campaigns',
-            'characters': 'TTRPG Resources - Characters', 
-            'bestiary': 'TTRPG Resources - Bestiary',
-            'world-building': 'TTRPG Resources - World Building'
+            'campaigns': 'Resources - Campaigns',
+            'characters': 'Resources - Characters', 
+            'bestiary': 'Resources - Bestiary',
+            'world-building': 'Resources - World Building'
         };
         
         document.title = titles[pageId] || 'TTRPG Resources';
     }
 
-    handleAnchor(e) {
+    handleAnchor(filename, e) {
         const link = e.target.closest('a[href^="#"');
         if (link) {
             e.preventDefault();
             const anchor = link.getAttribute('href');
-            window.location.hash = `content/${filename}${anchor}`;
-            if (anchor) {
-                const element = document.getElementById(anchor.substring(1));
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
+            // TODO: Quando si clicca su un link del TOC cambia l'url. Risolvi il problema che il filename si ingrandisce
+            // e rendi l'url e la posizione della pagina legati.
+            // window.location.hash = `content/${filename}${anchor}`;
+            this.scrollToAnchor(anchor);
+        }
+    }
+
+    scrollToAnchor(anchor) {
+        if (anchor) {
+            const element = document.getElementById(anchor.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
             }
         }
     }

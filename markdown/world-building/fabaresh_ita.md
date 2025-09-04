@@ -1,11 +1,8 @@
 ---
 title: Fabaresh
-description: Guida completa al Setting fantastico di Fabaresh.
 toc: true
 toc-depth: 3
 ---
-
-# Setting Generale
 
 Il pianeta di *Fabaresh* è un luogo misterioso e arcano.<br>
 La magia proviene da una forza invisibile e onnipresente chiamata *Trama*. Non si sa da dove provenga, ma si sa che è più potente se supportata da forti emozioni.
@@ -106,7 +103,7 @@ Telchek appare come una massa strisciante e mostruosa, la sua pelle è coperta d
 
 Il brivido di qualcosa che non va, di una persona che non si comporta come dovrebbe, degli spiriti dei morti e delle loro imperscrutabili motivazioni, di un ragno che corre via all'improvviso, scappando da qualcosa di più grosso e letale. Telchek si nutre di queste sensazioni. E' quasi possibile avvertire la sua presenza nei brividi lungo il collo... probabilmente è proprio il suo respiro a crearli... è sicuramente dietro di te.
 
-Le Scienze Apocriptiche hanno donato ai mortali più motivi per aver paura della società, del futuro, della propria stessa anima. Per questo nel corpo di Telchek stesso sembrano essere cresciuti arti metallici, o anche teste mostruose e artificiali. Maschere inespressive che sembrano scandagliare la moralità stessa dei mortali sfortunati da guardarli.
+Le Scienze Apocriptiche hanno donato ai mortali più motivi per aver paura della società, del futuro, della propria stessa anima. Per questo nel corpo di Telchek stesso sembrano essere cresciuti arti metallici, o anche teste mostruose e artificiali. Maschere inespressive che sembrano scandagliare la moralità stessa dei mortali tanto sfortunati dal guardarle.
 
 ## Creature Semidivine
 
@@ -146,7 +143,7 @@ Rappresentano un'anomalia tra le creature di grande potere, perché se lo sono p
 
 I membri della Corte sono:
 
-- **Ivette, la Strega Malvagia**: Ivette vaga nelle foreste più buie. La sua capanna si dice che appaia circondata dalla nebbia e da un profondo senso di stanchezza che utilizza per attrarre avventurieri al suo interno. Una scia di dolci appare insieme alla capanna. Una volta all'interno, Ivette offre té e biscotti e saluta i suoi ospiti con delle pozioni potentissime. Dopo diverse notti, le sue vittime si rendono conto di essere stati drogati, e che le pozioni donate sono fatte con pezzi umani, spesso provenienti da familiari e persone amate, oppure con pezzi della propria carne. La storia che ha dato vita a questo personaggio si chiama *La Mela Dorata*.
+- **Ivette, la Strega Malvagia**: Ivette vaga nelle foreste più buie. La sua capanna si dice che appaia circondata dalla nebbia e da un profondo senso di stanchezza che utilizza per attrarre avventurieri al suo interno. Una scia di dolci appare insieme alla capanna. Una volta all'interno, Ivette offre té e biscotti e saluta i suoi ospiti donandogli delle pozioni potentissime. Dopo diverse notti, le sue vittime si rendono conto di essere stati drogati, e che le pozioni donate sono fatte con pezzi umani, spesso provenienti da familiari e persone amate, oppure da pezzi della propria carne. La storia che ha dato vita a questo personaggio si chiama *La Mela Dorata*.
 
 - **Cowen, la Donna-corvo**: Cowen appare come una donna con gigantesche ali da corvo e piume nere che le coprono varie parti del corpo e della testa. Si dice che appaia come una nobildonna che invita gli avventurieri ad un sontuoso banchetto, solo per scoprire che il loro ruolo è quello delle portate per lei e i suoi mostruosi corvi. La storia che ha dato vita a questo personaggio si chiama *Piedelesto e il Banchetto dei Corvi*.
 
