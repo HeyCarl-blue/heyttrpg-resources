@@ -58,13 +58,16 @@ class HashRouter {
                 }
             });
             this.showContentFile(filename);
+            console.log(filename);
+            const anchor = filename.substring(filename.indexOf('#'), filename.length);
+            console.log(anchor);
+            if (anchor) this.scrollToAnchor(anchor);
             return;
         }
         
         const route = routes[hash] || routes['campaigns'];
         this.updateNavigation(route.navIndex);
         this.updatePage(route.pageId);
-        this.updateTitle(route.pageId);
     }
 
     async showContentFile(filename) {
@@ -95,13 +98,10 @@ class HashRouter {
 
             this.assetPage.onclick = (e) => this.handleAnchor(filename, e);
             
-            const title = filename.replace('.html', '').replace(/-/g, ' ');
-            document.title = `Resources - ${title}`;
             
         } catch (error) {
             this.assetPage.innerHTML = `
                 <div class="error-content">
-                    <button class="back-button" onclick="history.back()">← Back</button>
                     <h2>Error Loading Content</h2>
                     <p>Could not load "${filename}"</p>
                 </div>
@@ -109,8 +109,10 @@ class HashRouter {
         }
     }
 
-    showContent(filename) {
-        window.location.hash = `content/${filename}`;
+    showContent(filename, hash='') {
+        const sub = filename.substring(0, filename.indexOf('#'));
+        const fn = sub == '' ? filename : sub;
+        window.location.hash = `content/${fn}${hash}`;
     }
 
     updateNavigation(activeIndex) {
@@ -138,32 +140,19 @@ class HashRouter {
         }
     }
 
-    updateTitle(pageId) {
-        const titles = {
-            'campaigns': 'Resources - Campaigns',
-            'items': 'Resources - Items', 
-            'bestiary': 'Resources - Bestiary',
-            'world-building': 'Resources - World Building'
-        };
-        
-        document.title = titles[pageId] || 'TTRPG Resources';
-    }
-
     handleAnchor(filename, e) {
         const link = e.target.closest('a[href^="#"');
         if (link) {
             e.preventDefault();
             const anchor = link.getAttribute('href');
-            // TODO: Quando si clicca su un link del TOC cambia l'url. Risolvi il problema che il filename si ingrandisce
-            // e rendi l'url e la posizione della pagina legati.
-            // window.location.hash = `content/${filename}${anchor}`;
-            this.scrollToAnchor(anchor);
+            this.showContent(filename, anchor);
         }
     }
 
     scrollToAnchor(anchor) {
         if (anchor) {
-            const element = document.getElementById(anchor.substring(1));
+            const decodedAnchor = decodeURIComponent(anchor.substring(1));
+            const element = document.getElementById(decodedAnchor);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
