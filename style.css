@@ -40,7 +40,6 @@ body {
     font-weight: 400;
     font-style: normal;
     line-height: 1.6;
-    color: var(--text-2);
     background-color: var(--bg-1);
 }
 
@@ -61,6 +60,19 @@ nav {
     display: flex;
     justify-content: space-between;
     position: relative;
+}
+
+#logo {
+    font-family: "Alegreya", serif;
+    position: relative;
+    margin: 0 20vw;
+    margin-bottom: -1em;
+}
+
+#logo a {
+    text-decoration: none;
+    color: var(--text-1);
+    margin: 1em;
 }
 
 .nav-links {

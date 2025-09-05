@@ -1,4 +1,4 @@
-const sections = ['campaigns', 'items', 'bestiary', 'world-building'];
+const sections = ['home', 'campaigns', 'items', 'bestiary', 'world-building'];
 
 const routes = {
     '': { pageId: 'campaigns', navIndex: 0 },
